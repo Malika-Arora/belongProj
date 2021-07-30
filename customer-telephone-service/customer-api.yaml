@@ -1,0 +1,117 @@
+openapi: 3.0.1
+info:
+  title: Belong customer service
+  description: Belong customer service
+  termsOfService: 'http://swagger.io/terms/'
+  license:
+    name: Apache 2.0
+    url: 'http://springdoc.org'
+  version: '1.0'
+servers:
+  - url: 'http://localhost:8080'
+    description: Generated server url
+paths:
+  /v1/telephone/getAllNumbers:
+    get:
+      tags:
+        - customer-telephone-controller
+      description: Get all phone numbers
+      operationId: getAllNumbers
+      responses:
+        '200':
+          description: Success
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CustomerTelephoneDTO'
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '500':
+          description: Internal server error
+  '/v1/telephone/getNumbersByCustomer/{customerId}':
+    get:
+      tags:
+        - customer-telephone-controller
+      description: Get phone numbers by customer
+      operationId: getNumbersByCustomer
+      parameters:
+        - name: customerId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CustomerTelephoneDTO'
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '500':
+          description: Internal server error
+  '/v1/telephone/updateTelephoneStatus/{customerId}/{phoneNumber}/{active}':
+    patch:
+      tags:
+        - customer-telephone-controller
+      description: Activate/Deactivate phone status
+      operationId: updateTelephoneStatus
+      parameters:
+        - name: customerId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: phoneNumber
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: active
+          in: path
+          required: true
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: string
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                type: string
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                type: string
+        '500':
+          description: Internal server error
+          content:
+            '*/*':
+              schema:
+                type: string
+components:
+  schemas:
+    CustomerTelephoneDTO:
+      type: object
+      properties:
+        phoneNumber:
+          type: string
+        active:
+          type: boolean

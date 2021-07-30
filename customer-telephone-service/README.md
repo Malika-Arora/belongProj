@@ -1,15 +1,32 @@
 ### How do I get set up? ###
-* GIT link - 
-* Run the application - 
-	Build application - mvn clean install
-	Run the application - In the target folder run 
-				java -jar customer-telephone-service-0.0.1-SNAPSHOT.jar
-* Swagger file - customer-telephone-service\customer-api.yaml
-* Java version -1.8
-* Spring version - 2.5.3 
-* Database configuration - In memory h2 database
-* How to run tests - Build will run the junit tests
-* API Endpoints - 
+* Git link 
+	 https://github.com/Malika-Arora/belongProj.git
+
+
+* Swagger file
+        customer-telephone-service\customer-api.yaml
+
+
+* Technical stack 
+	 Java8
+	 Spring Boot
+	 Maven
+
+
+* Database configuration 
+	in-memory h2 database
+
+
+* API Endpoints 
+
 	GET - http://localhost:8080/v1/telephone/getAllNumbers
 	GET- http://localhost:8080/v1/telephone/getNumbersByCustomer/2
 	PATCH- curl -X PATCH http://localhost:8080/v1/telephone/updateTelephoneStatus/1/+61469880141/1
+
+* Approach
+	Load static data using in h2 databse using data.sql 
+	Expose Rest APIs using spring boot Rest Controller
+
+
+* Improvement
+	User Authentication/Authorization

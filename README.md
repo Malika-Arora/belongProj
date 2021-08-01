@@ -6,21 +6,19 @@
 
 * Swagger file
 
-        customer-telephone-service\customer-api.yaml
+	customer-telephone-service\customer-api.yaml
 
 
 * Technical stack 
 
-	 Java8
-	 
-	 Spring Boot
-	 
-	 Maven
+	Java8
+	
+	Spring Boot
+	
+	Maven
 
 
 * Database configuration 
-
-	
 	in-memory h2 database
 
 
